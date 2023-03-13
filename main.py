@@ -41,7 +41,17 @@ time.sleep(20)
 jobs_button = driver.find_element(By.XPATH, '//*[@id="global-nav"]/div/nav/ul/li[3]/a/div/div/li-icon')
 jobs_button.click()
 
-time.sleep(5)
+time.sleep(7)
 job_search_input = driver.find_element(By.CLASS_NAME, "jobs-search-box__text-input")
 job_search_input.send_keys("python developer")
 job_search_input.send_keys(Keys.ENTER)
+
+time.sleep(5)
+# Saving jobs
+apply_buttons = driver.find_elements(By.CLASS_NAME, "job-card-container__apply-method")
+
+for button in apply_buttons:
+    button.click()
+
+    job_save_button = driver.find_element(By.CLASS_NAME, "jobs-save-button")
+    job_save_button.click()
